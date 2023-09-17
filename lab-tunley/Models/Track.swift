@@ -9,7 +9,7 @@ import Foundation
 
 // TODO: Pt 1 - Create a Track model struct
 
-struct Track {
+struct Track: Decodable  {
     let trackName: String
     let artistName: String
     let artworkUrl100: URL
@@ -21,12 +21,16 @@ struct Track {
     let trackTimeMillis: Int
 }
 
+struct TracksResponse: Decodable {
+    let results: [Track]
+}
+
 // TODO: Pt 1 - Create an extension with a mock tracks static var
 
 extension Track {
 
     /// An array of mock tracks
-    static var mockTracks: [Track]  = [
+  /*  static var mockTracks: [Track]  = [
         Track(trackName: "Ice Cream",
               artistName: "BLACKPINK & Selena Gomez",
               artworkUrl100: URL(string:"https://is5-ssl.mzstatic.com/image/thumb/Music125/v4/c3/64/46/c364465f-6271-8aae-93a8-b9979d2befe5/20UMGIM82075.rgb.jpg/100x100bb.jpg")!,
@@ -48,7 +52,7 @@ extension Track {
               primaryGenreName: "K-Pop",
                releaseDate: Date(),
                trackTimeMillis: 157705)
-    ]
+    ] */
 
     // We can now access this array of mock tracks anywhere like this:
     // let tracks = Tracks.mockTracks
